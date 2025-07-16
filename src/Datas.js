@@ -2,8 +2,7 @@ export const Products = [
   {
     title: "Apple iPhone 14 Pro Max",
     price: 1099,
-    image:
-      "https://images.unsplash.com/photo-1661990428850-2fb1c8f0d3e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+    image: "https://www.worten.pt/i/03dfd91db61d2207e12c8caf8a3d2e68691b5268",
     description:
       "The iPhone 14 Pro Max features a 6.7-inch Super Retina XDR display, A16 Bionic chip, and a triple-camera system with ProRAW and ProRes video capabilities. It offers 5G connectivity and is available in various colors.",
     category: "Smartphones",
