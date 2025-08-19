@@ -1,7 +1,7 @@
 import logo from "../../images/logo.png";
 import { CartButton, ImageLogo, InputSpace, Nav } from "./NavbarStyled";
 
-export function Navbar({ query, onQueryChange, cartCount }) {
+export function Navbar({ query, onQueryChange, cartCount, onOpenCart }) {
   return (
     <>
       <Nav>
@@ -15,7 +15,7 @@ export function Navbar({ query, onQueryChange, cartCount }) {
           />
         </InputSpace>
         <ImageLogo src={logo} alt="Logo JS Store" />
-        <CartButton>
+        <CartButton onClick={onOpenCart}>
           <i className="bi bi-bag"></i>
           Carrinho ({cartCount || 0})
         </CartButton>

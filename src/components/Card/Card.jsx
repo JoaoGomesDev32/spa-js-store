@@ -8,7 +8,7 @@ import {
   ProductTitle,
 } from "./CardStyle";
 
-export function Card({ product, onAdd }) {
+export function Card({ product, onAdd, onOpen }) {
   const hasDiscount = product.discount && product.discount > 0;
   const discountedPrice = hasDiscount
     ? (product.price * (1 - product.discount / 100)).toFixed(2)
@@ -16,11 +16,11 @@ export function Card({ product, onAdd }) {
 
   return (
     <ProductCard>
-      <ProductImageWrapper>
+      <ProductImageWrapper onClick={() => onOpen?.()} style={{ cursor: "pointer" }}>
         <img src={product.image} alt={product.title} />
       </ProductImageWrapper>
       <ProductBody>
-        <ProductTitle title={product.title}>{product.title}</ProductTitle>
+        <ProductTitle title={product.title} onClick={() => onOpen?.()} style={{ cursor: "pointer" }}>{product.title}</ProductTitle>
         <ProductMeta>
           {product.brand} • {product.category}
         </ProductMeta>

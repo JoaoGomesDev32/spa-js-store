@@ -1,13 +1,14 @@
-import { useMemo, useState } from "react";
-import { Navbar } from "../../components/Navbar/Navbar";
+import { useMemo } from "react";
 import { Card } from "../../components/Card/Card";
 import { Products } from "../../Datas";
 import { ProductGrid } from "../../components/Card/CardStyle";
-import { Footer } from "../../components/Footer/Footer";
+import { useCart } from "../../context/CartContext";
+import { useOutletContext, useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
-  const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
+  const { addItem, totalItems, openCart } = useCart();
+  const { query, setQuery } = useOutletContext();
 
   const filteredProducts = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -23,26 +24,20 @@ export default function Home() {
   }, [query]);
 
   function handleAddToCart(product) {
-    setCart((prev) => {
-      const exists = prev.find((i) => i.id === product.id);
-      if (exists) {
-        return prev.map((i) =>
-          i.id === product.id ? { ...i, qty: i.qty + 1 } : i
-        );
-      }
-      return [...prev, { ...product, qty: 1 }];
-    });
+    addItem(product, 1);
+  }
+
+  function handleOpenProduct(productId) {
+    navigate(`/product/${productId}`);
   }
 
   return (
     <>
-      <Navbar query={query} onQueryChange={setQuery} cartCount={cart.length} />
       <ProductGrid>
         {filteredProducts.map((item) => (
-          <Card key={item.id} product={item} onAdd={handleAddToCart} />
+          <Card key={item.id} product={item} onAdd={handleAddToCart} onOpen={() => handleOpenProduct(item.id)} />
         ))}
       </ProductGrid>
-      <Footer />
     </>
   );
 }
