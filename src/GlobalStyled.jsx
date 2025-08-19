@@ -7,15 +7,18 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: Newsreader, Arial;
+    box-sizing: border-box;
   }
 
   html {
     width: auto;
+    scroll-behavior: smooth;
   }
 
   body {
     max-width: 100vw;
-    height: 100vh;
-    background-color: #f5f5f5;
+    min-height: 100vh;
+    background-color: ${({ theme }) => theme?.colors?.background || '#f5f5f5'};
+    color: ${({ theme }) => theme?.colors?.text || '#222'};
   }
 `;
