@@ -15,8 +15,7 @@ export const Products = [
   {
     title: "Samsung Galaxy S23 Ultra",
     price: 1199,
-    image:
-      "https://images.unsplash.com/photo-1677721234567-1234567890ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+    image: "https://www.worten.pt/i/8b8bd691ebe10fbd90a23ca446ad49c13ac5d338",
     description:
       "The Samsung Galaxy S23 Ultra boasts a 6.8-inch Dynamic AMOLED display, Snapdragon 8 Gen 2 processor, and a quad-camera setup with a 200MP main sensor. It supports S Pen functionality and has a large battery for extended use.",
     category: "Smartphones",
@@ -29,8 +28,7 @@ export const Products = [
   {
     title: "Google Pixel 7 Pro",
     price: 899,
-    image:
-      "https://images.unsplash.com/photo-1677721234567-1234567890cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+    image: "https://www.worten.pt/i/04ae0e7908cc493908bf5ba11a129836300b8b7c",
     description:
       "The Google Pixel 7 Pro features a 6.7-inch LTPO OLED display, Google Tensor G2 chip, and a triple-camera system with advanced computational photography capabilities. It offers stock Android experience and regular updates.",
     category: "Smartphones",
@@ -43,8 +41,7 @@ export const Products = [
   {
     title: "OnePlus 11",
     price: 749,
-    image:
-      "https://images.unsplash.com/photo-1677721234567-1234567890ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+    image: "https://www.worten.pt/i/8ef0d98ca9473ef06985ea8a7af1257c7bf1b1c3",
     description:
       "The OnePlus 11 features a 6.7-inch Fluid AMOLED display, Snapdragon 8 Gen 2 processor, and a Hasselblad camera system. It offers fast charging and a smooth OxygenOS experience.",
     category: "Smartphones",
