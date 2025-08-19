@@ -1,34 +1,44 @@
-// import { Products } from "../../Datas";
+import {
+  AddButton,
+  PriceRow,
+  ProductBody,
+  ProductCard,
+  ProductImageWrapper,
+  ProductMeta,
+  ProductTitle,
+} from "./CardStyle";
 
-export function Card({ props }) {
-  console.log(props);
+export function Card({ product, onAdd }) {
+  const hasDiscount = product.discount && product.discount > 0;
+  const discountedPrice = hasDiscount
+    ? (product.price * (1 - product.discount / 100)).toFixed(2)
+    : product.price.toFixed(2);
+
   return (
-    <section>
-      <p>{props.brand}</p>
-      <h2>{props.title}</h2>
-      <p>{props.category}</p>
-      <p>{props.description}</p>
-      <p>Discount: {props.discount}%</p>
-      <img src={props.image} alt="Product Image" />
-      <p>${props.price}</p>
-      <p>Rating: {props.rating}</p>
-      <p>Stock: {props.stock}</p>
-      {/* <button>Shop Product</button>
-      <img
-        src="https://www.worten.pt/i/03dfd91db61d2207e12c8caf8a3d2e68691b5268"
-        alt="Image"
-      />
-      <p>Description</p>
-      <p>Category</p>
-      <i className="bi bi-star-fill"></i>
-      <i className="bi bi-star-fill"></i>
-      <i className="bi bi-star-fill"></i>
-      <i className="bi bi-star-half"></i>
-      <i className="bi bi-star"></i>
-      <p>Stock</p>
-      <p>Brand</p>
-      <p>Discount</p>
-      <i className="bi bi-chat"></i> */}
-    </section>
+    <ProductCard>
+      <ProductImageWrapper>
+        <img src={product.image} alt={product.title} />
+      </ProductImageWrapper>
+      <ProductBody>
+        <ProductTitle title={product.title}>{product.title}</ProductTitle>
+        <ProductMeta>
+          {product.brand} • {product.category}
+        </ProductMeta>
+        <ProductMeta style={{ minHeight: "2.7rem" }}>
+          {product.description}
+        </ProductMeta>
+        <PriceRow>
+          <strong>R$ {discountedPrice}</strong>
+          {hasDiscount && <s>R$ {product.price.toFixed(2)}</s>}
+        </PriceRow>
+        <ProductMeta>
+          <i className="bi bi-star-fill" style={{ color: "#f6b100" }}></i> {product.rating} • Estoque: {product.stock}
+        </ProductMeta>
+        <AddButton onClick={() => onAdd?.(product)}>
+          <i className="bi bi-bag-plus" style={{ marginRight: "0.4rem" }}></i>
+          Adicionar ao carrinho
+        </AddButton>
+      </ProductBody>
+    </ProductCard>
   );
 }

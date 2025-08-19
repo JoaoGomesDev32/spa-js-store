@@ -11,6 +11,8 @@ export const Nav = styled.nav`
   background-color: #fff;
   z-index: 1;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: sticky;
+  top: 0;
 `;
 
 export const ImageLogo = styled.img`
@@ -25,6 +27,8 @@ export const InputSpace = styled.div`
   width: 200px;
   display: flex;
   align-items: center;
+  flex: 1;
+  max-width: 520px;
 
   i {
     position: absolute;
@@ -74,4 +78,11 @@ export const Button = styled.button`
   &:hover {
     background-color: #0a86af;
   }
+`;
+
+export const CartButton = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
 `;

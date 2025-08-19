@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <GlobalStyled />
-      <Home />;
+      <Home />
     </>
   );
 }
