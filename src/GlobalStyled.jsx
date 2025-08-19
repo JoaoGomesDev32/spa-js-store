@@ -17,8 +17,8 @@ export const GlobalStyled = createGlobalStyle`
 
   body {
     max-width: 100vw;
-    height: 100vh;
-    background-color: #f5f5f5;
-    color: #222;
+    min-height: 100vh;
+    background-color: ${({ theme }) => theme?.colors?.background || '#f5f5f5'};
+    color: ${({ theme }) => theme?.colors?.text || '#222'};
   }
 `;

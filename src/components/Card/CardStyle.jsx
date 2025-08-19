@@ -12,7 +12,7 @@ export const ProductGrid = styled.section`
 export const ProductCard = styled.article`
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: ${({ theme }) => theme?.colors?.surface || '#fff'};
   border-radius: 0.5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   overflow: hidden;
