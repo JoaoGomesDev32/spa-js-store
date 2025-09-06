@@ -18,17 +18,18 @@ const Wrap = styled.section`
 `;
 
 const Image = styled.img`
-	width: 100%;
-	border-radius: 0.5rem;
-	background: #fff;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: ${({ theme }) => theme?.colors?.surface || '#fff'};
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
 const Box = styled.div`
-	background: #fff;
-	border-radius: 0.5rem;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	padding: 1rem;
+  background: ${({ theme }) => theme?.colors?.surface || '#fff'};
+  border-radius: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 1rem;
+  color: ${({ theme }) => theme?.colors?.text || '#222'};
 `;
 
 const Button = styled.button`
@@ -68,13 +69,13 @@ export default function Product() {
 			<Image src={product.image} alt={product.title} />
 			<Box>
 				<h2>{product.title}</h2>
-				<p style={{ color: "#666", margin: ".3rem 0 .8rem" }}>
+				<p style={{ color: "var(--text-secondary)", margin: ".3rem 0 .8rem" }}>
 					{product.brand} • {product.category}
 				</p>
 				<p style={{ marginBottom: ".8rem" }}>{product.description}</p>
 				<div style={{ display: "flex", alignItems: "center", gap: ".5rem" }}>
 					<strong style={{ fontSize: "1.4rem" }}>R$ {discountedPrice}</strong>
-					{hasDiscount && <s style={{ color: "#999" }}>R$ {product.price.toFixed(2)}</s>}
+					{hasDiscount && <s style={{ color: "var(--text-muted)" }}>R$ {product.price.toFixed(2)}</s>}
 				</div>
 				<Button onClick={handleBuy}>
 					<i className="bi bi-bag-plus" style={{ marginRight: ".4rem" }}></i>
