@@ -14,19 +14,21 @@ const Drawer = styled.aside`
 	right: 0;
 	width: min(92vw, 380px);
 	height: 100vh;
-	background: #fff;
+	background: ${({ theme }) => theme?.colors?.surface || '#fff'};
 	box-shadow: rgba(0, 0, 111, 0.2) 0px 7px 29px 0px;
 	z-index: 30;
 	display: flex;
 	flex-direction: column;
+	color: ${({ theme }) => theme?.colors?.text || '#222'};
 `;
 
 const Header = styled.div`
 	padding: 1rem;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid ${({ theme }) => theme?.colors?.border || '#eee'};
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	color: ${({ theme }) => theme?.colors?.text || '#222'};
 `;
 
 const Content = styled.div`
@@ -37,10 +39,11 @@ const Content = styled.div`
 
 const Footer = styled.div`
 	padding: 1rem;
-	border-top: 1px solid #eee;
+	border-top: 1px solid ${({ theme }) => theme?.colors?.border || '#eee'};
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+	color: ${({ theme }) => theme?.colors?.text || '#222'};
 `;
 
 const Row = styled.div`
@@ -48,7 +51,8 @@ const Row = styled.div`
 	gap: 0.75rem;
 	align-items: center;
 	padding: 0.5rem 0;
-	border-bottom: 1px dashed #f0f0f0;
+	border-bottom: 1px dashed ${({ theme }) => theme?.colors?.border || '#f0f0f0'};
+	color: ${({ theme }) => theme?.colors?.text || '#222'};
 `;
 
 const Thumb = styled.img`
@@ -56,19 +60,21 @@ const Thumb = styled.img`
 	height: 56px;
 	object-fit: cover;
 	border-radius: 0.35rem;
-	background: #fafafa;
+	background: ${({ theme }) => theme?.colors?.background || '#fafafa'};
 `;
 
 const QtyInput = styled.input`
 	width: 54px;
 	padding: 0.4rem 0.3rem;
 	border-radius: 0.35rem;
-	border: 1px solid #ddd;
+	border: 1px solid ${({ theme }) => theme?.colors?.border || '#ddd'};
+	background: ${({ theme }) => theme?.colors?.surface || '#fff'};
+	color: ${({ theme }) => theme?.colors?.text || '#222'};
 	text-align: center;
 `;
 
 const Button = styled.button`
-	background-color: #0bade3;
+	background-color: ${({ theme }) => theme?.colors?.primary || '#0bade3'};
 	border: none;
 	outline: none;
 	font-size: 1rem;
@@ -83,8 +89,8 @@ const Button = styled.button`
 `;
 
 const Secondary = styled(Button)`
-	background: #f2f2f2;
-	color: #333;
+	background: ${({ theme }) => theme?.colors?.background || '#f2f2f2'};
+	color: ${({ theme }) => theme?.colors?.text || '#333'};
 `;
 
 export function CartDrawer() {
@@ -110,9 +116,9 @@ export function CartDrawer() {
 								<Thumb src={item.image} alt={item.title} />
 								<div style={{ flex: 1 }}>
 									<div style={{ fontWeight: 600 }}>{item.title}</div>
-									<div style={{ color: "#777", fontSize: ".92rem" }}>
-										R$ {(item.price * (1 - (item.discount || 0) / 100)).toFixed(2)}
-									</div>
+								<div style={{ color: "var(--text-secondary)", fontSize: ".92rem" }}>
+									R$ {(item.price * (1 - (item.discount || 0) / 100)).toFixed(2)}
+								</div>
 								</div>
 								<div style={{ display: "flex", alignItems: "center", gap: ".5rem" }}>
 									<QtyInput

@@ -20,8 +20,17 @@ export default function Layout() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [location.pathname]);
 
-	const [mode, setMode] = useState("light");
+	const [mode, setMode] = useState(() => {
+		const saved = localStorage.getItem("theme-mode");
+		return saved || "light";
+	});
 	const theme = mode === "dark" ? darkTheme : lightTheme;
+
+	const handleToggleMode = () => {
+		const newMode = mode === "dark" ? "light" : "dark";
+		setMode(newMode);
+		localStorage.setItem("theme-mode", newMode);
+	};
 
 	return (
 		<ThemeProvider theme={theme}>
@@ -32,7 +41,7 @@ export default function Layout() {
 				cartCount={totalItems}
 				onOpenCart={openCart}
 				mode={mode}
-				onToggleMode={() => setMode((m) => (m === "dark" ? "light" : "dark"))}
+				onToggleMode={handleToggleMode}
 			/>
 			<Outlet context={{ query, setQuery }} />
 			<CartDrawer />

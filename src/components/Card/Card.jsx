@@ -32,7 +32,7 @@ export function Card({ product, onAdd, onOpen }) {
           {hasDiscount && <s>R$ {product.price.toFixed(2)}</s>}
         </PriceRow>
         <ProductMeta>
-          <i className="bi bi-star-fill" style={{ color: "#f6b100" }}></i> {product.rating} • Estoque: {product.stock}
+          <i className="bi bi-star-fill" style={{ color: "var(--rating-color, #f6b100)" }}></i> {product.rating} • Estoque: {product.stock}
         </ProductMeta>
         <AddButton onClick={() => onAdd?.(product)}>
           <i className="bi bi-bag-plus" style={{ marginRight: "0.4rem" }}></i>

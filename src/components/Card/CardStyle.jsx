@@ -50,7 +50,7 @@ export const ProductTitle = styled.h3`
 
 export const ProductMeta = styled.p`
   font-size: 0.9rem;
-  color: #666;
+  color: ${({ theme }) => theme?.colors?.textSecondary || '#666'};
 `;
 
 export const PriceRow = styled.div`
@@ -61,11 +61,11 @@ export const PriceRow = styled.div`
 
   strong {
     font-size: 1.1rem;
-    color: #111;
+    color: ${({ theme }) => theme?.colors?.text || '#111'};
   }
 
   s {
-    color: #a1a1a1;
+    color: ${({ theme }) => theme?.colors?.textMuted || '#a1a1a1'};
     font-size: 0.9rem;
   }
 `;

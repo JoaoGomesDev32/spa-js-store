@@ -1,5 +1,5 @@
 import logo from "../../images/logo.png";
-import { CartButton, ImageLogo, InputSpace, Nav, ModeToggle } from "./NavbarStyled";
+import { CartButton, CartBadge, ImageLogo, InputSpace, Nav, ModeToggle } from "./NavbarStyled";
 import { Link } from "react-router-dom";
 
 export function Navbar({ query, onQueryChange, cartCount, onOpenCart, mode, onToggleMode }) {
@@ -34,7 +34,8 @@ export function Navbar({ query, onQueryChange, cartCount, onOpenCart, mode, onTo
           </ModeToggle>
           <CartButton onClick={onOpenCart}>
             <i className="bi bi-bag"></i>
-            Carrinho ({cartCount || 0})
+            Carrinho
+            {cartCount > 0 && <CartBadge>{cartCount}</CartBadge>}
           </CartButton>
         </div>
       </Nav>

@@ -85,6 +85,23 @@ export const CartButton = styled(Button)`
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 0.7rem;
+  position: relative;
+`;
+
+export const CartBadge = styled.span`
+  position: absolute;
+  top: -0.3rem;
+  right: -0.3rem;
+  background: #dc3545;
+  color: white;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
 `;
 
 export const ModeToggle = styled.button`

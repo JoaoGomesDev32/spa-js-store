@@ -21,4 +21,10 @@ export const GlobalStyled = createGlobalStyle`
     background-color: ${({ theme }) => theme?.colors?.background || '#f5f5f5'};
     color: ${({ theme }) => theme?.colors?.text || '#222'};
   }
+
+  :root {
+    --rating-color: ${({ theme }) => theme?.colors?.rating || '#f6b100'};
+    --text-secondary: ${({ theme }) => theme?.colors?.textSecondary || '#666'};
+    --text-muted: ${({ theme }) => theme?.colors?.textMuted || '#999'};
+  }
 `;
